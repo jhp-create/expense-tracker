@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Dashboard extends React.Component {
   render() {
-    let a = this.props.trans.reduce((acc, item) => {
+    let a = this.props.expense.reduce((acc, item) => {
       let final = acc
       final.totalAmount = final.totalAmount + parseInt(item.amount);
       switch (item.category) {

@@ -25,10 +25,10 @@ export default class Main extends Component {
         </div>
         <div className='right-column'>
           <h2>{this.props.income.reduce((sum, amt) => sum + parseInt(amt.amount), 0)}</h2>
-          <h2>{this.props.trans.reduce((sum, amt) => sum + parseInt(amt.amount), 0)}</h2>
+          <h2>{this.props.expense.reduce((sum, amt) => sum + parseInt(amt.amount), 0)}</h2>
         </div>
         <div className='right-total'>
-          <h2>{this.props.income.reduce((sum, amt) => sum + parseInt(amt.amount), 0) - this.props.trans.reduce((sum, amt) => sum + parseInt(amt.amount), 0)}</h2>
+          <h2>{this.props.income.reduce((sum, amt) => sum + parseInt(amt.amount), 0) - this.props.expense.reduce((sum, amt) => sum + parseInt(amt.amount), 0)}</h2>
         </div>
         <div className='nav-exp'>
           <button id='addExp' onClick={() => this.props.reset('expense')}>Add Expense</button>

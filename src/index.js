@@ -9,6 +9,7 @@ import Transaction from './transaction';
 import Dashboard from './dashboard';
 
 class ExpenseApp extends React.Component {
+  
   state = {
     page: 'main',
     date: '',
@@ -16,7 +17,7 @@ class ExpenseApp extends React.Component {
     category: '',
     totalIncome: 0,
     totalExpense: 0,
-    transaction: [],
+    expense: [],
     income: [],
     alltrans: []
   }
@@ -33,23 +34,23 @@ class ExpenseApp extends React.Component {
     if(this.state.amount!==0 && this.state.category) {
       this.setState({page: 'main'})
       this.setState({
-        transaction: this.state.transaction.concat(
+        expense: [...this.state.expense, 
           {
             date: this.state.date,
             amount: this.state.amount,
             category: this.state.category,
           }
-        )
+        ]
       });
       this.setState({
-        alltrans: this.state.alltrans.concat(
+        alltrans: [...this.state.alltrans,
           {
             date: this.state.date,
             amount: this.state.amount,
             category: this.state.category,
             type: 'red'
           }
-        )
+        ]
       });
     }
   } 
@@ -66,23 +67,23 @@ class ExpenseApp extends React.Component {
     if(this.state.amount!==0 && this.state.category) {
       this.setState({page: 'main'});
       this.setState({
-        income: this.state.income.concat(
+        income: [...this.state.income,
           {
             date: this.state.date,
             amount: this.state.amount,
             category: this.state.category,
           }
-        )
+        ]
       });
       this.setState({
-        alltrans: this.state.alltrans.concat(
+        alltrans: [...this.state.alltrans, 
           {
             date: this.state.date,
             amount: this.state.amount,
             category: this.state.category,
             type: 'green'
           }
-        )
+        ]
       });
     }
   }
@@ -102,7 +103,7 @@ class ExpenseApp extends React.Component {
     switch(this.state.page) {
       case 'main':
         return <Main 
-                  trans={this.state.transaction}
+                  expense={this.state.expense}
                   income={this.state.income}
                   totalInc={this.state.totalIncome} 
                   totalExp={this.state.totalExpense} 
@@ -131,7 +132,7 @@ class ExpenseApp extends React.Component {
                   navigate={this.navigate}/>
       case 'dashboard':
       return <Dashboard
-                trans={this.state.transaction} 
+                expense={this.state.expense} 
                 navigate={this.navigate}/>
     }
   }
