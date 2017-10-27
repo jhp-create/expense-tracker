@@ -1,3 +1,5 @@
 Expense Tracker
 
-This app keeps track of your expenses/incomes and has some features that can help you manage your expenses.
+- Tracks every expenses/income transaction.
+- View all transactions in the Transaction page.
+- Displays a simple piechart of the categories of all transactions.
